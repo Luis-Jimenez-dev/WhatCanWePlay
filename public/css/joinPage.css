@@ -1,0 +1,46 @@
+@import "generalStyles.css";
+
+/* Overall container for the individual room numbers */
+.inputWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    margin: auto;
+}
+
+/* Each individual number in the display */
+.roomnum {
+    color: white;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 5px 10px;
+    outline: none;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    margin: 0 5px;
+}
+
+/* Title for Join Room */
+#joinRoomCode {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 4vh;
+}
+
+/* TODO: Ideally there'd be less padding on the boxes, but it's fine for now. */
+#topJoinText {
+    padding-bottom: 2vh;
+}
+
+#bottomJoinText {
+    padding-top: 3vh;
+}
+
+/* Styling both to be the same color & size */
+.joinRoomText {
+    color: #B4B4B4;
+    font-size: 1.25rem;
+}

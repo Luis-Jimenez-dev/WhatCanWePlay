@@ -1,0 +1,49 @@
+<%- include('partials/header.ejs', {title: `What Can We Play Today?`, stylesheet: `generalStyles.css`}) %> 
+<%- include('partials/navbarLogout.ejs') %>
+
+<div id="animationContainer">
+    <img id="loading" src="/img/choiceLoad.gif">
+</div>
+<div class="gradient-background">
+    <div class="background-box">
+        <h1> Enter a Room! </h1>
+        <h6 id="isUser"></h6>
+        <div id="userAvatar"></div>
+        <p id="altPageHelp"> Great! Now that you're logged in you can: </p>
+        <div id="roomChoiceText">
+            <p align="left"> <strong>Create a Room:</strong> So that you and your friends can all join up to compare games. </p>
+            <p align="left"> <strong>Join a Room:</strong> Ask your friend for a Room Code to enter and join on their room to compare libraries. </p>
+        </div>
+        <div id="roomChoiceButtons">
+            <form action="/room-choice" method="post">
+                <input type="hidden" name="role" value="Host" />
+                <button type="submit" style="margin: 5px" onclick="displayAnimation()"> CREATE ROOM</button>
+            </form>
+            
+            <form action="/join-room" method="get">
+                <input type="hidden" name="role" value="Member" />
+                <button type="submit" style="margin: 5px">JOIN ROOM</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
+<script>
+    // Loading animation is hidden at the beginning
+    document.getElementById('animationContainer').style.display = 'none';
+
+    // Initialized variables to be used
+    let username = document.querySelector('#isUser');
+    let temp = Cookies.get('username');
+    // TODO: Change the username to a different color
+    username.innerHTML = `Welcome ${temp}!`;
+    let avatar = Cookies.get('avatar');
+    let profilePic = document.querySelector("#userAvatar");
+    profilePic.innerHTML += `<img src="${avatar}" alt="Icon for ${username}" />`;
+
+    // Shows loading animation when the create button is clicked
+    function displayAnimation() {
+        document.getElementById('animationContainer').style.display = 'flex';
+        document.querySelector(".gradient-background").style.display = "none";
+    }
+</script>

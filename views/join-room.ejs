@@ -1,0 +1,77 @@
+<%- include('partials/header.ejs', {title: `What Can We Play Today?`, stylesheet: `joinPage.css`}) %>
+<%- include('partials/navbarBackLogout.ejs', {linkToPage: `/room-choice`}) %>
+
+<div id="animationContainer">
+    <img id="loading" src="/img/choiceLoad.gif">
+</div>
+<div class="gradient-background">
+    <div>
+        <h1 id="joinRoomCode"> ROOM CODE </h1>
+        <img class="roomSeperator" src="/img/controllerSeparator.png" alt="Separator for Page">
+    </div>
+    <div class="background-box">
+        <p id="topJoinText" class="joinRoomText"> Enter a Room Code Here </p>
+        <div id="form">
+            <form name="join" method="post" action="/join-room" onsubmit="return check()" class="inputField">
+                <div class="inputWrapper">
+                    <input type="text" maxlength="1" class="roomnum" id="roomnum1" oninput="moveForward(1,2)">
+                    <input type="text" maxlength="1" class="roomnum" id="roomnum2" oninput="moveForward(2,3)" onkeyup="moveBack(event, 2)">
+                    <input type="text" maxlength="1" class="roomnum" id="roomnum3" oninput="moveForward(3,4)" onkeyup="moveBack(event, 3)">
+                    <input type="text" maxlength="1" class="roomnum" id="roomnum4" oninput="moveForward(4,5)" onkeyup="moveBack(event, 4)">
+                    <input type="text" maxlength="1" class="roomnum" id="roomnum5" onkeyup="moveBack(event, 5)">
+                </div>
+                <input type="hidden" id="roomnum" name="roomnum">
+                <br>
+                <button type="submit">JOIN ROOM</button>
+            </form>
+            <p id="bottomJoinText" class="joinRoomText"> Don't forget to ask a friend for the Room Code! </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Loading animation is hidden at the beginning
+    document.getElementById('animationContainer').style.display = 'none';
+
+    // Function checks the validity of the room number
+    function check() {
+        var roomNumber = document.getElementById("roomnum1").value + document.getElementById("roomnum2").value +
+                         document.getElementById("roomnum3").value + document.getElementById("roomnum4").value + 
+                         document.getElementById("roomnum5").value;
+                         
+        if (!'<%= existingRooms %>'.includes(roomNumber)) {
+            alert("Room number doesn't exist");
+            return false;
+        }
+
+        // Used to send the room-number data to the back end
+        document.getElementById("roomnum").value = roomNumber;
+        
+        // Displays loading animation
+        document.getElementById('animationContainer').style.display = 'flex';
+        document.querySelector(".gradient-background").style.display = "none";
+        return true;
+    }
+
+    // Used to move cursor to the next box when adding room code
+    function moveForward(currentBox, nextBox) {
+        const currentValue = document.getElementById('roomnum' + currentBox).value;
+
+        if (currentValue.length === 1) {
+            document.getElementById('roomnum' + nextBox)?.focus();
+        }
+    }
+
+    // Used to move cursor to the previous box when backspace is pressed
+    function moveBack(event, currentBox){
+        const key = event.key;
+        const currentValue = document.getElementById('roomnum' + currentBox).value;
+
+        if(key === 'Backspace'){
+            if(currentValue === ''){
+                document.getElementById('roomnum' + (currentBox-1)).focus();
+            }
+        }
+    }
+
+</script>

@@ -1,0 +1,14 @@
+@import "generalStyles.css";
+
+.background-box-pp {
+    margin-top: 6vh;
+    max-width: 70vw;
+    /* Increase the maximum width */
+    display: inline-flex;
+    flex-direction: column;
+    background-color: var(--boxBackground);
+    text-align: left;
+    padding: 5vh;
+    /* Reduce the padding */
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}

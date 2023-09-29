@@ -1,0 +1,122 @@
+<%- include('partials/header.ejs', {title: `What Can We Play Today?`, stylesheet: `generalStyles.css`}) %> 
+<%- include('partials/navbarBack.ejs', {linkToPage: `/`}) %> 
+
+<div id="animationContainer">
+    <img id="loadingChoice" src="/img/choiceLoad.gif">
+</div>
+<div id="listPageLayout">
+    <div id="leftHandList">
+            <div>
+                <p class="leftHandLabels"> FILTER BY TAGS </p>
+                <div id ="menuDiv"></div>
+                <button id="button" class="indivTag"></button>
+                <div hidden id="tagPopupButton"> </div>
+            </div>
+
+            <div>
+                <p class="leftHandLabels"> FILTER BY CATEGORY </p>
+                <div id="genreDiv"></div>          
+                <button id="button2" class="indivTag"></button>      
+                <div hidden id="categoryPopupButton"> </div>
+            </div>
+
+            <div id="priceItems">
+                <p class="leftHandLabels"> FILTER BY PRICE </p>
+                <button id="freeBtn">FREE</button>
+                <button id="underTen">Under $10</button>
+                <button id="underFourty">Under $40</button>
+                <div id="customPriceElements">
+                    <input type="number" id="inputPrice" placeholder="Min $">
+                    <input type="number" id="inputPriceMax" placeholder="Max $">
+                    <!-- <input type="text" id="inputPrice" placeholder="Min $">
+                    <input type="text" id="inputPriceMax" placeholder="Max $"> -->
+                    <button id="displayPriceRange" class="roomButtonText"> GO </button>
+                    <button id="button3" class="indivTag"></button>      
+                    <div hidden id="pricePopupButton"> </div>
+                </div>
+            </div>
+            <div id="clearAllFiltersButton"></div>
+        </div>
+
+    <div id="centerList">
+        <div id="toGrab">
+            <div class="gameItem">
+                <img class="gameImage" src="http://cdn.akamai.steamstatic.com/steam/apps/230410/header.jpg" alt="Icon for Warframe">
+                <div class="seperator">
+                    <a class="gameTitle" href="https://store.steampowered.com/app/230410"> Warframe </a>
+                    <div class="tagHolder">
+                        <p class="gameTag"> Free to Play </p>
+                        <p class="gameTag"> Action RPG </p>
+                        <p class="normalPrice"> Free </p>
+                    </div>
+                </div>
+                <div class="roomMembers">
+                    <p class="gameMemberText"> NOT OWNED BY </d>
+                    <div class="roomMemberImages">
+                        <img class="userIconInList" src="https://avatars.steamstatic.com/de63198a51c76b3ed2dfd72e82d2ce4d666ce449_medium.jpg" alt="Icon for TidalWings">
+                    </div>
+                </div>
+            </div>
+            <div class="gameItem">
+                <img class="gameImage" src="http://cdn.akamai.steamstatic.com/steam/apps/6910/header.jpg" alt="Icon for Deus Ex: Game of the Year Edition">
+                <div class="seperator">
+                    <a class="gameTitle" href="https://store.steampowered.com/app/6910"> Deus Ex: Game of the Year Edition </a>
+                    <div class="tagHolder">
+                        <p class="gameTag"> Action RPG </p>
+                        <p class="normalPrice"> $4.99 </p>
+                        <p class="fullPrice"> $8.99 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rightHandList">
+
+    </div>
+</div>
+
+
+
+<script> 
+    // document.getElementById('loading').style.display = 'none';
+    document.getElementById('listPageLayout').style.display = 'none';
+
+    function displayPriceRange() {
+        const userInputMin = document.getElementById("inputPrice").value;
+        const userInputMax = document.getElementById("inputPriceMax").value;
+        console.log("MIN INPUT:" + userInputMin);
+        console.log("MAX INPUT: " + userInputMax);
+
+        sessionStorage.setItem('minPriceSelection', userInputMin);
+        sessionStorage.setItem('maxPriceSelection', userInputMax);
+        window.location.reload();
+    }
+
+    function dropDownMenu2() {
+        const menu = document.createElement("select");
+        const title = document.createElement("option");
+        const genreArray = ["Co-op", "Online Co-op","PvP","Online PvP","Cross-Platform Multiplayer",
+                            "Remote Play Together","Shared/Split Screen Co-op","Shared/Split Screen PvP",
+                            "LAN PvP","LAN Co-op"];
+        title.disabled = true;
+        title.selected = true;
+        title.textContent = "Select a Genre";
+        menu.appendChild(title);
+
+        for (let i = 0; i < genreArray.length; i++) {
+          const option = document.createElement("option");
+          option.value = genreArray[i];
+          option.setAttribute('name', "option");
+          option.textContent = genreArray[i];
+          menu.appendChild(option);
+        }
+
+        let menuDiv = document.getElementById("genreDiv");
+        genreDiv.appendChild(menu);
+
+        menu.addEventListener("change", filterBySelected2);
+      }
+
+      dropDownMenu2();
+</script>

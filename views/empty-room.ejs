@@ -1,0 +1,113 @@
+<%- include('partials/header.ejs', {title: `What Can We Play Today?`, stylesheet: `generalStyles.css`}) %>
+<%- include('partials/navbarLogout.ejs') %>
+
+<!-- This file and route are called EMPTY ROOM but it's only technically empty for the first user. After more users join it'll change dynamically with Javascript -->
+<div class="gradient-background">
+    <div id="roomElements">
+        <h1 class="room-title"> ROOM CODE </h1>
+        <img class="roomSeperator" src="/img/controllerSeparator.png" alt="Seperator for Page">
+        <h1 id = "roomNumber" class="room-number"> <%= roomNumber %> </h1>
+    </div>
+    <div class="background-box" style="margin-top: 3vh;">
+        <h4 style="text-decoration: underline; color: #b1b1b1;"> MEMBERS </h4>
+
+        <body onload = "sendMessage()">
+            <div id="toGen"></div>
+            <br>
+            <!-- TODO: Ensure the "Host" of the room (the first user) can only click Generate -->
+            <button id="newList" class="roomButtonText"> GENERATE LIST </button>
+            <!-- TODO: Use proper CSS styling here instead of BRs -->
+            <br>
+            <button id="copyRoomLink" class="roomButtonText" onclick="showSuccess(); copyFunction()"> COPY ROOM CODE </button>
+            <br>
+            <!-- TODO: Make this actually do something -->
+            <button id="leave" class="roomButtonText" style="background-color: #C75858"> LEAVE ROOM </button>
+    </div>
+</div>
+<script>
+    // Sets up our Socket connections
+    const socket = io('<%= url %>');
+    socket.on('connection');
+
+    // Initializes sessions for filtering
+    sessionStorage.setItem('tagSelection', '');
+    sessionStorage.setItem('categorySelection', '');
+    sessionStorage.setItem('priceSelection', '');
+    sessionStorage.setItem('minPriceSelection', '');
+    sessionStorage.setItem('maxPriceSelection', '');
+    // Fetches data from Cookies and send it to the back-end. Runs on page load.
+    const sendMessage = () => {
+        let steamID = Cookies.get('steamID');
+        let username = Cookies.get('username');
+        let avatar = Cookies.get('avatar');
+        let roomNumber = Cookies.get('roomNumber');
+        socket.emit('message', {steamID: steamID, username: username, avatar: avatar, roomNumber: roomNumber});
+    }
+     
+    // Receives data from Back-end when other users join.
+    socket.on('otherMsg', (data) => {
+                
+        // Sets up the image div with the first user that joins
+        let divAppend = document.getElementById('toGen');
+        let current = `<img src = "${data[0][2]}"">`;
+        divAppend.innerHTML = current;
+        
+        // Appends other users that join to the image div
+        for (let i = 1; i < data.length; i++) {
+            let HTML = `<img src = "${data[i][2]}"">`;
+            current += HTML;
+        }
+        divAppend.innerHTML = current;
+    });
+
+    // Button used to dynamically reload page for all members
+    let button = document.getElementById('newList');
+    button.addEventListener('click', function() {
+        let steamID = Cookies.get('steamID');
+        let username = Cookies.get('username');
+        let avatar = Cookies.get('avatar');
+        let roomNumber = Cookies.get('roomNumber');
+        socket.emit('generateList', {roomNumber: roomNumber});
+        socket.emit('newList', {steamID: steamID, username: username, avatar: avatar, roomNumber: roomNumber});
+    });
+
+    // Leave functionality to clear all user data
+    let leave = document.getElementById('leave');
+    leave.addEventListener('click', function() {
+        let roomNumber = Cookies.get('roomNumber');
+        sessionStorage.clear();
+        socket.emit('generateList2', {roomNumber: roomNumber});
+        window.location.href = "/leave";
+    });
+
+    // Dynamically updates the page when a user leaves
+    socket.on('refreshList2', () =>  {
+        location.reload();
+    });
+    
+    // redirects to list page
+    socket.on('navigate', function() {
+        window.location.href = "/list";
+    });
+
+    // Used to copy the room number
+    function copyFunction() {
+        let copyRoomNum = document.getElementById('roomNumber');
+        let selection = window.getSelection();
+        let range = document.createRange();
+
+        range.selectNodeContents(copyRoomNum);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        
+        document.execCommand('copy');
+    }
+
+    // Shows that the room code has been copied
+    function showSuccess() {
+        jSuites.notification({
+            name: 'Copied to Clipboard',
+        });
+    }
+    
+</script>

@@ -1,0 +1,146 @@
+@import "navItems.css";
+
+/* Creating global color variables to make it easier to reference */
+:root {
+    --mainBackground: #17293E;
+    --boxBackground: #171A21;
+    --mainGradient: #213e59;
+}
+
+body {
+    background-color: var(--mainBackground);
+    text-align: center;
+}
+
+/* Set most of the text to white */
+h1, h2, a, p, label {
+    color: white;
+}
+
+/* A black "background box" for general pages. */
+.background-box {
+    margin-top: 6vh;
+    max-width: 45vw;
+    display: inline-flex;
+    flex-direction: column;
+    background-color: var(--boxBackground);
+    text-align: center;
+    padding: 12vh;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* The light-blue fade gradient on most pages. */
+.gradient-background {
+    background-image: linear-gradient(90deg,
+            rgba(0, 0, 0, 0) 10%,
+            var(--mainGradient) 30%,
+            var(--mainGradient) 80%,
+            rgba(0, 0, 0, 0) 90%);
+    /* For Desktop, probably wan't a diff one for mobile */
+    height: 90vh;
+}
+
+/* Specific Hover color for links */
+a:hover {
+    color:#9FE544;
+}
+
+/* Generic Green Button by Default */
+button {
+    font-family: 'Kanit', sans-serif;
+    background-color: #6F9F31;
+    color: white;
+    padding: 1vh 2vw;
+    font-size: large;
+    border: none;
+    /* Key for Lift Off effect */
+    transition: all .3s ease-in-out;
+}
+
+/* Add a hover effect to all buttons, regardless of color/purpose. */
+button:hover {
+    /* the 3D transform here is key to the effect */
+    transform: translate3d(0px, -1px, 0px);
+    /* this stronger shadow sells that the card is being lifted up */
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* These two rule sets ensure our animation loads full screen & properly */
+#animationContainer {
+    display: flex;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading {
+    max-height: 65vh;
+}
+
+/* ===================== ? ===================== */
+
+#altPageHelp {
+    color: #A5A5A5;
+    font-size: 1.1rem;
+}
+
+#altPageGuide {
+    color: #A5A5A5;
+    font-size: 1.1rem;
+}
+
+.roomMembers {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vh;
+    margin-left: auto;
+    margin-right: 1vw;
+}
+
+.userIconInList {
+    max-height: 7vh;
+    align-self: center;
+}
+
+#userId {
+    font-family: 'Kanit', sans-serif;
+    width: 20vw;
+    height: 6vh;
+    margin-bottom: 4vh;
+    font-size: 36px;
+    text-align: center;
+}
+
+#roomChoiceButtons {
+    display: flex;
+    justify-content: center;
+}
+
+#isUser {
+    color: white;
+}
+
+.room-title {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#roomNumber {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4rem;
+}
+
+.roomSeperator {
+    max-height: 1vh;
+}
+
+#roomElements {
+    padding-top: 4vh;
+}
+
+.roomButtonText {
+    font-size: 1.25rem;
+}
+
+#newList {
+    font-size: 1.5rem;
+}

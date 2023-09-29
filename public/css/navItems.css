@@ -1,0 +1,73 @@
+/* Ensures our navbar has proper color & sizing for each page */
+nav {
+    background-color: #0B0E13;
+    max-height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+/* Keeps logo properly sized */
+#logo {
+    max-height: 8vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+}
+
+/* Also keeps our back button the right size */
+#backButton {
+    max-height: 5vh;
+}
+
+#logoutNavButton {
+    /* max-height: 5vh; */
+    background-color: transparent;
+}
+
+#actualLogoutImg {
+    max-height: 5vh;
+}
+
+/* Alignment for the logo and back arrow when we have it displayed */
+#logoItem {
+    flex: 1;
+}
+
+#backItem {
+    align-self: center;
+}
+
+/* Specific navbar for back button & logout */
+#navBackLog {
+    display: flex;
+}
+
+#navBackLog #backItem {
+    flex: 0.5;
+}
+
+#navBackLog #centralArea {
+    flex: 9;
+}
+
+#navBackLog #centralArea img {
+    padding-left: 4vw;
+}
+
+#navBackLog #logoutNavButton {
+    flex: 0.5;
+    align-self: center;
+    max-height: auto;
+}
+
+/* Styling for some Nav items */
+#navLog #centralArea {
+    flex: 9.5;
+}
+
+#navLog #centralArea img {
+    padding-left: 8.8vw;
+}
+
+#navLog #logoutNavButton {
+    flex: 0.5;
+}

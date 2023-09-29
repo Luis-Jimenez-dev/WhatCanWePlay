@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs', {title: `What Can We Play Today?`, stylesheet: `generalStyles.css`}) %> 
+<%- include('partials/navbarBack.ejs', {linkToPage: `/`}) %> 
+
+<div id="toGrab">
+    <div class="gameItem">
+        <img class="gameImage" src="http://cdn.akamai.steamstatic.com/steam/apps/230410/header.jpg" alt="Icon for Warframe">
+        <div class="seperator">
+            <a class="gameTitle" href="https://store.steampowered.com/app/230410"> Warframe </a>
+            <p class="gameTag"> Multiplayer </p>
+        </div>
+        <div class="roomMembers">
+            <p class="gameMemberText"> NOT OWNED BY </>
+            <div class="roomMemberImages">
+                <img class="userIconInList" src="https://avatars.steamstatic.com/de63198a51c76b3ed2dfd72e82d2ce4d666ce449_medium.jpg" alt="Icon for TidalWings">
+            </div>
+        </div>
+    </div>
+    
+    <%- include('partials/gameItem.ejs', {gameName: 'Deus Ex: Game of the Year Edition', gameImage: 'http://cdn.akamai.steamstatic.com/steam/apps/6910/header.jpg', gameLink: 'https://store.steampowered.com/app/6910'}) %>
+</div>
+

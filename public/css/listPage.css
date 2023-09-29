@@ -1,0 +1,226 @@
+@import "generalStyles.css";
+
+/* The parent layout for most games being added to the list page */
+#toGrab,
+#recGames {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* A parent organizer for the tags, title, and pricing */
+.seperator {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+/* Ensures the multiple tags are in a row pattern */
+.tagHolder {
+    display: flex;
+}
+
+/* The entire game card for each individual game */
+.gameItem {
+    margin: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--boxBackground);
+    width: 55vw;
+    /* Key for Lift Off effect */
+    transition: all .3s ease-in-out;
+}
+
+.gameItem:hover {
+    /* the 3D transform here is key to the effect */
+    transform: translate3d(0px, -1px, 0px);
+    /* this stronger shadow sells that the card is being lifted up */
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* The Text title for each individual game */
+.gameTitle {
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    font-size: larger;
+    align-self: flex-start;
+}
+
+/* The Individual Tags for each game */
+.gameTag {
+    background-color: #243C4F;
+    font-family: 'Kanit', sans-serif;
+    margin-top: 3.5vh;
+    letter-spacing: 0.75px;
+    color: #82D3FF;
+    align-self: flex-start;
+    border-radius: 6px;
+    padding: 8px;
+    margin-right: 0.5vw;
+}
+
+/* The price for a standard game, no strike through */
+.normalPrice {
+    color: #B3EE11;
+    font-family: 'Kanit', sans-serif;
+    font-size: larger;
+    align-self: center;
+    margin-bottom: 0;
+    margin-top: 2vh;
+    margin-right: 0.5vw;
+}
+
+/* The full MSRP price of a game if it's on sale */
+.fullPrice {
+    color: #B1B1B1;
+    text-decoration: line-through;
+    font-family: 'Kanit', sans-serif;
+    font-size: large;
+    align-self: center;
+    margin-bottom: 0;
+    margin-top: 2vh;
+    margin-right: 0.5vw;
+}
+
+/* Ensuring the height of the image will stay at a reasonable size */
+.gameImage {
+    max-height: 15vh;
+}
+
+/* the "Not Owned By" text on each card for recommended games */
+.gameMemberText {
+    font-family: 'Kanit', sans-serif;
+    color: #B1B1B1;
+    text-decoration: underline;
+}
+
+/* ===================== General List Page ===================== */
+
+#listPageLayout {
+    display: flex;
+}
+
+#leftHandList {
+    flex: 2;
+}
+
+/* All components for the RIGHT hand column */
+#rightHandList {
+    flex: 2;
+}
+
+#roomCodeList {
+    text-decoration: underline;
+    color: #B1B1B1;
+    font-size: 1.2rem;
+    margin-top: 2vh;
+}
+
+#displayRoomNum {
+    color: #B1B1B1;
+    font-size: 2.2rem;
+}
+
+#leave {
+    background-color: red;
+    width: 220px;
+    height: 48px;
+    margin-top: 2vh;
+}
+
+/* All components for the CENTER column */
+#centerList {
+    display: flex;
+    flex-direction: column;
+    flex: 6;
+}
+
+#recGamesList,
+#toGrabList {
+    color: #E6E6E6;
+    text-decoration: underline;
+}
+
+#priceItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#priceItems button {
+    max-width: 10vw;
+    border: 1px white solid;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 0.1vh 0.5vw;
+    font-size: 1.25rem;
+    margin-bottom: 1vh;
+}
+
+#customPriceElements {
+    display: flex;
+    flex-direction: row;
+    max-height: 4vh;
+    max-width: 6vw;
+    justify-content: center;
+    gap: 0.25vw;
+}
+
+#customPriceElements input {
+    max-width: 6vw;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.2rem;
+}
+
+#customPriceElements button {
+    max-width: 5vw;
+    max-height: 4vh;
+    margin-bottom: 0;
+}
+
+.leftHandLabels {
+    color: #B1B1B1;
+    margin-top: 8vh;
+    text-decoration: underline;
+    font-size: 1.2rem;
+}
+
+#filterClearButton {
+    margin-top: 2vh;
+    background-color: red;
+}
+
+#genreDiv select,
+#menuDiv select {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    font-size: 1.1rem;
+}
+
+#genreDiv option,
+#menuDiv option {
+    background-color: var(--mainBackground);
+}
+
+/* ===================== "Removable" Tags on List ===================== */
+
+.indivTag {
+    border: 2px white solid;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 0.1vh 0.5vw;
+    font-size: 1.25rem;
+    margin-top: 2vh;
+}
+
+.crossIcon {
+    padding-left: 1vw;
+    height: 3vh;
+    font-size: 1.5rem;
+}
+
+

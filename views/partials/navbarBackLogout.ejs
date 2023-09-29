@@ -1,0 +1,26 @@
+<nav id="navLog">
+    <!-- TODO: Figure out how to use Vector here instead of PNG -->
+    <!-- <img
+      id="logo"
+      alt="What Can We Play Today Logo"
+      src="/img/VecLogo.svg"
+    /> -->
+    <a id="centralArea" href="/">
+        <img
+        id="logo"
+        alt="What Can We Play Today Logo"
+        src="/img/StandardImgLogo.png"
+        />
+    </a>
+    <!-- TODO: Eventually create reset feature with Logo -->
+    <button id="logoutNavButton">
+        <img id="actualLogoutImg" src="/img/logout.png" alt="Logout Button">
+    </button>
+</nav>
+
+<script>
+    let logout = document.getElementById('actualLogoutImg');
+    logout.addEventListener('click', function(){
+        window.location.href = "/logout";
+    });
+</script>

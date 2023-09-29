@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 589.48 192.01">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        letter-spacing: -.14em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.07em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.09em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-9 {
+        letter-spacing: -.11em;
+      }
+
+      .cls-4 {
+        font-family: ArialNarrow-BoldItalic, Arial;
+        font-size: 103.42px;
+        font-style: italic;
+      }
+
+      .cls-4, .cls-10 {
+        font-weight: 700;
+      }
+
+      .cls-10 {
+        fill: none;
+        font-family: ArialNarrow-Bold, Arial;
+        font-size: 101.55px;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-11 {
+        letter-spacing: -.08em;
+      }
+
+      .cls-12 {
+        letter-spacing: -.08em;
+      }
+
+      .cls-13 {
+        letter-spacing: -.07em;
+      }
+
+      .cls-14 {
+        letter-spacing: 0em;
+      }
+
+      .cls-15 {
+        letter-spacing: -.05em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="cls-3" d="m232.31,137.47c-.37.04-1.26.22-1.71.35-1.4.4-3.66,1.45-4.09,1.88-.4.4-.6.83-.67,1.45-.06.45-.19.64-.56.8-.48.2-.5.25-.89,1.84-.83,3.41-1.34,5.88-1.76,8.49-1.39,8.65-.75,14.35,1.93,17.24,1.07,1.15,2.66,1.74,4.05,1.49.38-.07.9-.25,1.17-.42.46-.28.68-.55,3.03-3.54,2.63-3.37,2.62-3.35,3.46-3.8.7-.37,1.26-.54,2.09-.61.27-.02,3.58-.04,9-.03,8,.01,8.6.02,8.93.08,1.05.2,1.98.58,2.85,1.16.15.1,1.82,1.54,3.7,3.2,2.3,2.02,3.54,3.09,3.76,3.24,1.95,1.29,4.39.95,5.37-.75.93-1.62.91-4.16-.07-7.56-1.29-4.46-4.13-10.32-8.81-18.16-.93-1.56-1-1.65-1.42-1.8-.58-.22-.77-.39-.98-.86-.25-.6-.82-1.24-1.41-1.59-.5-.3-2.44-1.09-3.53-1.44-1.75-.56-3.17-.76-4.18-.61-.78.12-1.28.35-1.74.81-.44.44.38.39-6.97.39-4.73,0-6.47-.01-6.59-.04-.09-.03-.27-.13-.42-.24-.9-.67-1.63-.92-2.77-.95-.33,0-.69,0-.78,0Z"/>
+      <text class="cls-4" transform="translate(22.64 85.8) scale(.97) skewX(14.78)"><tspan class="cls-13" x="0" y="0">WH</tspan><tspan class="cls-5" x="127.18" y="0">A</tspan><tspan class="cls-6" x="173.68" y="0">T</tspan><tspan class="cls-15" x="218.45" y="0" xml:space="preserve"> CAN WE</tspan></text>
+      <text class="cls-10" transform="translate(42.55 157.85) rotate(.21) scale(.99) skewX(10)"><tspan class="cls-11" x="0" y="0">P</tspan><tspan class="cls-8" x="47.92" y="0">L</tspan><tspan class="cls-9" x="95.44" y="0">A</tspan><tspan class="cls-7" x="144.55" y="0">Y</tspan><tspan class="cls-1" x="191.03" y="0"> </tspan><tspan class="cls-2" x="214.18" y="0">T</tspan><tspan x="263.62" y="0">OD</tspan><tspan class="cls-12" x="388.52" y="0">A</tspan><tspan class="cls-14" x="440.98" y="0">Y?</tspan></text>
+    </g>
+  </g>
+</svg>

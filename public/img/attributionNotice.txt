@@ -1,0 +1,10 @@
+While the controller icon used in the logo and "separator" don't require any 
+attribution, for the sake of "this is a school project" and just to be clear 
+about it the icon was not made by any of us and acquired online. All the other 
+icons in this project were made in Adobe Illustrator though as they were simple
+enough to do so.
+
+Link to SVG and the Original file from which the SVG was derived from:
+
+https://svgsilh.com/image/1827840.html
+https://pixabay.com/vectors/controller-gamepad-xbox-video-games-1827840/
